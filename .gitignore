@@ -1,0 +1,34 @@
+# Build result folders
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio cache
+.vs/
+
+# LocalDB / SQL Server
+*.mdf
+*.ldf
+*.ndf
+*.dbmdl
+
+# ASP.NET generated
+wwwroot/lib/
+node_modules/
+dist/
+build/
+
+# OneDrive/Windows lockfiler
+~$*
+
+# Log files
+*.log
+
+# Secrets/config
+appsettings.Development.json
