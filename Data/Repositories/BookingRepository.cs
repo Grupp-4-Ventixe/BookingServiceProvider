@@ -7,7 +7,7 @@ namespace Data.Repositories;
 
 public interface IBookingRepository : IBaseRepository<BookingEntity>
 {
-
+    Task<RepositoryResult<IEnumerable<BookingEntity>>> GetByEmailAsync(string email);
 }
 
 public class BookingRepository(DataContext context) : BaseRepository<BookingEntity>(context), IBookingRepository
@@ -52,5 +52,33 @@ public class BookingRepository(DataContext context) : BaseRepository<BookingEnti
             };
         }
     }
+
+    public async Task<RepositoryResult<IEnumerable<BookingEntity>>> GetByEmailAsync(string email)
+    {
+        try
+        {
+            var bookings = await _table
+                .Include(x => x.BookingOwner)
+                .ThenInclude(x => x!.Address)
+                .Where(b => b.BookingOwner.Email == email)
+                .ToListAsync();
+
+            return new RepositoryResult<IEnumerable<BookingEntity>>
+            {
+                Success = true,
+                Result = bookings
+            };
+        }
+        catch (Exception ex)
+        {
+            return new RepositoryResult<IEnumerable<BookingEntity>>
+            {
+                Success = false,
+                Error = ex.Message
+            };
+        }
+    }
+
+
 }
 
