@@ -1,4 +1,4 @@
-# BookingServiceProvider ![.NET](https://img.shields.io/badge/.NET-8.0-blue)
+# BookingServiceProvider ![.NET](https://img.shields.io/badge/.NET-9.0-blue)
 
 **BookingServiceProvider** är en mikrotjänst som ansvarar för hantering av bokningar kopplade till events.  
 Tjänsten innehåller CRUD-operationer för bokningar samt relaterade objekt som kunduppgifter och adressinformation.  
@@ -26,11 +26,11 @@ Skapar en ny bokning.
 **Request body:**
 ```json
 {
-  "eventId": "uuid",
-  "firstName": "Anna",
-  "lastName": "Andersson",
-  "email": "anna@example.com",
-  "streetName": "Gatan 1",
+  "eventId": "b2c6fa61-b7d6-4e38-808b-daf9480a46ee",
+  "firstName": "Test",
+  "lastName": "Testsson",
+  "email": "Test@example.com",
+  "streetName": "TestGatan 1",
   "postalCode": "12345",
   "city": "Stockholm",
   "ticketQuantity": 2
@@ -50,10 +50,10 @@ Hämtar alla bokningar.
 [
   {
     "id": "booking-id",
-    "eventId": "uuid",
-    "firstName": "Anna",
-    "lastName": "Andersson",
-    "email": "anna@example.com",
+    "eventId": "b2c6fa61-b7d6-4e38-808b-daf9480a46ee",
+    "firstName": "Test",
+    "lastName": "Testsson",
+    "email": "Test@example.com",
     "city": "Stockholm",
     "ticketQuantity": 2
   }
@@ -68,10 +68,10 @@ Hämtar bokningar baserat på e-postadress.
 [
   {
     "id": "booking-id",
-    "eventId": "uuid",
-    "firstName": "Anna",
-    "lastName": "Andersson",
-    "email": "anna@example.com",
+    "eventId": "b2c6fa61-b7d6-4e38-808b-daf9480a46ee",
+    "firstName": "Test",
+    "lastName": "Testsson",
+    "email": "Test@example.com",
     "ticketQuantity": 2
   }
 ]
@@ -141,14 +141,18 @@ https://localhost:{port}/swagger
 ## Diagram
 
 ### Aktivitetsdiagram
-**Skapa bokning**
 
-**Radera bokning**
+**Skapa bokning**  
+![Flödesdiagram Skapa](./diagrams/Flödesdiagram%20CreateBooking.svg)
 
 ### Sekvensdiagram
-**Skapa bokning**
 
-**Radera bokning**
+**Skapa bokning**  
+![Sekvens Skapa](./diagrams/Sekvensdiagram%20Booking.svg)
+
+
+**Radera bokning**  
+![Sekvens Radera](./diagrams/Sekvensdiagram%20deleteBooking.svg)
 
 ---
 
