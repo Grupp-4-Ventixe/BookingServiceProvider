@@ -156,6 +156,12 @@ https://localhost:{port}/swagger
 
 ---
 
+## Publicering
+
+Tjänsten var publicerad på Azure:  
+ https://ventixe-4-bookingservice.azurewebsites.net/ (nu borttagen)
+
+---
 ## Integrationer
 BookingServiceProvider är kopplad till EventServiceProvider
 och anropas via bokningsflödet i Event Details-vyn i frontend.
